@@ -1,5 +1,6 @@
 本内容均从网上多渠道转载
 仅用于个人备份使用
+
 ss安装
 wget --no-check-certificate -O shadowsocks-libev-debian.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev-debian.sh
 chmod +x shadowsocks-libev-debian.sh
@@ -7,8 +8,30 @@ chmod +x shadowsocks-libev-debian.sh
 ss卸载
 ./shadowsocks-libev-debian.sh uninstall
 
+使用命令
+升级：./shadowsocks-libev-debian.sh
+启动：/etc/init.d/shadowsocks start
+停止：/etc/init.d/shadowsocks stop
+重启：/etc/init.d/shadowsocks restart
+查看状态：/etc/init.d/shadowsocks status
+写入自启echo "ssserver -c /etc/shadowsocks.json -d restart" >> /etc/rc.local
+查看日志less /var/log/shadowsocks.log
+查看当前ss服务器所开放的端口
+ss -lntp | grep ssserver
+
+ss查看连接的人数
+Ubuntu:apt-get install lsof -y
+CentOs:yum install lsof -y
+
+# 服务器端口, 查看连接数
+sudo lsof -i -n -P | egrep -c ':21217.+ESTABLISHED'
+
+# 查看连接列表
+sudo lsof -i -n -P | egrep ':21217.+ESTABLISHED'
+
 
 锐速
+
 更新内核
 rpm -ivh http://soft.91yun.org/ISO/Linux/CentOS/kernel/kernel-3.10.0-229.1.2.el7.x86_64.rpm --force
 查看内核
@@ -23,54 +46,3 @@ service serverSpeeder status
 service serverSpeeder stats
 锐速卸载
 chattr -i /serverspeeder/etc/apx* && /serverspeeder/bin/serverSpeeder.sh uninstall -f
-
-
-ss使用命令
-单用户配置
-{
-    "server":"0.0.0.0",
-    "server_port":your_server_port,
-    "local_address":"127.0.0.1",
-    "local_port":1080,
-    "password":"your_password",
-    "timeout":300,
-    "method":"your_encryption_method",
-    "fast_open": false
-}
-多用户配置
-{
-    "server":"0.0.0.0",
-    "local_address":"127.0.0.1",
-    "local_port":1080,
-    "port_password":{
-         "8989":"password0",
-         "9001":"password1",
-         "9002":"password2",
-         "9003":"password3",
-         "9004":"password4"
-    },
-    "timeout":300,
-    "method":"your_encryption_method",
-    "fast_open": false
-}
-
-升级：./shadowsocks-libev-debian.sh
-启动：/etc/init.d/shadowsocks start
-停止：/etc/init.d/shadowsocks stop
-重启：/etc/init.d/shadowsocks restart
-查看状态：/etc/init.d/shadowsocks status
-写入自启echo "ssserver -c /etc/shadowsocks.json -d restart" >> /etc/rc.local
-查看日志less /var/log/shadowsocks.log
-查看当前ss服务器所开放的端口
-ss -lntp | grep ssserver
-
-
-ss查看连接的人数
-Ubuntu:apt-get install lsof -y
-CentOs:yum install lsof -y
-
-# 服务器端口, 查看连接数
-sudo lsof -i -n -P | egrep -c ':21217.+ESTABLISHED'
-
-# 查看连接列表
-sudo lsof -i -n -P | egrep ':21217.+ESTABLISHED'
