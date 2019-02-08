@@ -1,11 +1,11 @@
 本内容均从网上多渠道转载
 仅用于个人备份使用
 ss安装
-wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
-chmod +x shadowsocks.sh
-./shadowsocks.sh 2>&1 | tee shadowsocks.log
+wget --no-check-certificate -O shadowsocks-libev-debian.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev-debian.sh
+chmod +x shadowsocks-libev-debian.sh
+./shadowsocks-libev-debian.sh 2>&1 | tee shadowsocks-libev-debian.log
 ss卸载
-./shadowsocks.sh uninstall
+./shadowsocks-libev-debian.sh uninstall
 
 
 锐速
@@ -54,10 +54,11 @@ ss使用命令
     "fast_open": false
 }
 
+升级：./shadowsocks-libev-debian.sh
 启动：/etc/init.d/shadowsocks start
 停止：/etc/init.d/shadowsocks stop
 重启：/etc/init.d/shadowsocks restart
-状态：/etc/init.d/shadowsocks status
+查看状态：/etc/init.d/shadowsocks status
 写入自启echo "ssserver -c /etc/shadowsocks.json -d restart" >> /etc/rc.local
 查看日志less /var/log/shadowsocks.log
 查看当前ss服务器所开放的端口
