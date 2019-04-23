@@ -6,6 +6,8 @@ Debian安装sudo
 apt-get install sudo
 sudo apt-get install ca-certificates
 
+apt-get install net-tools
+
 ss安装
 wget --no-check-certificate -O shadowsocks-libev-debian.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev-debian.sh
 chmod +x shadowsocks-libev-debian.sh
@@ -33,6 +35,8 @@ sudo lsof -i -n -P | egrep -c ':21217.+ESTABLISHED'
 
 # 查看连接列表
 sudo lsof -i -n -P | egrep ':21217.+ESTABLISHED'
+
+iptables -A INPUT -p udp --destination-port 19301 -j ACCEPT
 
 
 锐速
