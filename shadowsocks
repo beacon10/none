@@ -4,6 +4,7 @@
 
 Debian安装sudo
 apt-get install sudo
+sudo apt-get install ca-certificates
 
 ss安装
 wget --no-check-certificate -O shadowsocks-libev-debian.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev-debian.sh
