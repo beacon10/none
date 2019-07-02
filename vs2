@@ -21,3 +21,6 @@ sudo lsof -i -n -P | egrep ':21217.+ESTABLISHED'
 iptables -A INPUT -p udp --destination-port 19301 -j ACCEPT
 
 
+com++channel
+v2ray++++++......
+
