@@ -1,5 +1,5 @@
 wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz -cO lnmp1.6.tar.gz && tar zxf lnmp1.6.tar.gz && cd lnmp1.6 && ./install.sh nginx
-vi /etc/nginx/conf.d/v2ray.conf
+
 apt install certbot
 certbot certonly --standalone -d example.com
 
@@ -9,6 +9,8 @@ apt-get install certbot python-certbot-nginx -t stretch-backports
 certbot --nginx  （ /etc/letsencrypt）
 # certbot renew --dry-run  测试自动续订}
 # 0 0 15 */3 * /root/certbot/certbot-auto renew  #在3，6，9，12月份的15号零点零分执行更新
+
+vi /etc/nginx/conf.d/v2ray.conf
 ####  v2++
 wget https://install.direct/go.sh
 bash go.sh
