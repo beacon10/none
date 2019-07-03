@@ -1,7 +1,7 @@
 wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz -cO lnmp1.6.tar.gz && tar zxf lnmp1.6.tar.gz && cd lnmp1.6 && ./install.sh nginx
 
 apt install certbot
-certbot certonly --standalone -d example.com
+certbot certonly --standalone -d aifaye.com
 
 ###{echo "deb http://deb.debian.org/debian stretch-backports main" >> /etc/apt/sources.list.d/sources.list
 apt-get update
